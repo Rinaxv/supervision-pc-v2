@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Tauri
+src-tauri/target/
+src-tauri/gen/schemas
+$lignes = "node_modules","dist","src-tauri/target"
+if (-not (Test-Path .gitignore)) { New-Item .gitignore -ItemType File | Out-Null }
+$actuel = Get-Content .gitignore -ErrorAction SilentlyContinue
+Add-Content .gitignore ""
+foreach ($l in $lignes) { if ($actuel -notcontains $l) { Add-Content .gitignore $l } }
+Get-Content .gitignore
